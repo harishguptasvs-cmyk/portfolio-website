@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #020617;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 60px;
+}
+
+header img {
+  width: 120px;
+  border-radius: 50%;
+}
+
+/* Buttons */
+.btn {
+  background: #3b82f6;
+  padding: 10px 20px;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-outline {
+  border: 1px solid white;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Sections */
+section {
+  padding: 50px;
+  text-align: center;
+}
+
+/* Filters */
+.filters button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  background: #1e293b;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filters .active {
+  background: #3b82f6;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  width: 220px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.4s;
+}
+
+.card.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #3b82f6;
+}
+
+/* Button */
+.btn-small {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #3b82f6;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+}

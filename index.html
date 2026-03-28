@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>My Portfolio</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header>
+  <img src="profile.jpg" alt="Profile">
+  <h1>S V S Harish Gupta</h1>
+  <p>Frontend Developer | Web Enthusiast</p>
+
+  <a href="#projects" class="btn">View Projects</a>
+  <a href="resume.pdf" class="btn-outline" download>Download Resume</a>
+</header>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a passionate B.Tech IT student focused on frontend and web development.
+    I enjoy building clean, responsive, and user-friendly applications.
+    I continuously improve my skills through real-world projects.
+  </p>
+</section>
+
+<!-- Skills Filter -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="filters">
+    <button class="active" onclick="filterProjects('all', this)">All</button>
+    <button onclick="filterProjects('html', this)">HTML</button>
+    <button onclick="filterProjects('css', this)">CSS</button>
+    <button onclick="filterProjects('js', this)">JavaScript</button>
+    <button onclick="filterProjects('python', this)">Python</button>
+    <button onclick="filterProjects('java', this)">Java</button>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="cards">
+
+    <!-- HTML -->
+    <div class="card html show">
+      <h3>HTML Resume Page</h3>
+      <p>Basic resume built using pure HTML.</p>
+      <a href="https://github.com/harishguptasvs-cmyk/html-resume-page" target="_blank" class="btn-small">GitHub</a>
+    </div>
+
+    <!-- CSS -->
+    <div class="card css show">
+      <h3>CSS Landing Page</h3>
+      <p>Modern styled landing page using CSS.</p>
+      <a href="https://github.com/harishguptasvs-cmyk/css-landing-page" target="_blank" class="btn-small">GitHub</a>
+    </div>
+
+    <!-- JS -->
+    <div class="card js show">
+      <h3>Premium Digital Clock</h3>
+      <p>Animated clock with glass UI and effects.</p>
+      <a href="https://github.com/harishguptasvs-cmyk/js-premium-digital-clock/blob/main/README.md" target="_blank" class="btn-small">GitHub</a>
+    </div>
+
+    <!-- Python -->
+    <div class="card python show">
+      <h3>AI Resume Analyzer</h3>
+      <p>AI-based resume analysis tool.</p>
+      <a href="https://github.com/harishguptasvs-cmyk/ai-resume-analyzer" target="_blank" class="btn-small">GitHub</a>
+    </div>
+
+    <div class="card python show">
+      <h3>Expense Tracker</h3>
+      <p>Track daily expenses efficiently.</p>
+      <a href="https://github.com/harishguptasvs-cmyk/expense-tracker-python" target="_blank" class="btn-small">GitHub</a>
+    </div>
+
+    <!-- Java -->
+    <div class="card java show">
+      <h3>Smart SOS App</h3>
+      <p>Emergency alert mobile application.</p>
+      <a href="https://github.com/harishguptasvs-cmyk/Smart_SOS_App" target="_blank" class="btn-small">GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p><i class="fas fa-envelope"></i> harishguptasvs@gmail.com</p>
+  <p><i class="fas fa-phone"></i> +91 6359595902</p>
+</section>
+
+<footer>
+  <p>© 2026 Your Name</p>
+</footer>
+
+<script>
+function filterProjects(category, btn) {
+  let cards = document.querySelectorAll('.card');
+  let buttons = document.querySelectorAll('.filters button');
+
+  buttons.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  cards.forEach(card => {
+    card.classList.remove('show');
+
+    setTimeout(() => {
+      if (category === 'all' || card.classList.contains(category)) {
+        card.style.display = 'block';
+        setTimeout(() => card.classList.add('show'), 50);
+      } else {
+        card.style.display = 'none';
+      }
+    }, 200);
+  });
+}
+</script>
+
+</body>
+</html>
