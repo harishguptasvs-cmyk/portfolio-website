@@ -24,10 +24,13 @@
   <meta property="twitter:description" content="Explore my portfolio showcasing production-grade web applications, AI models, and real-world system integrations.">
   <meta property="twitter:image" content="profile.jpg">
 
-  <!-- Fonts -->
+  <!-- Preloading Font Assets for Speed and CLS elimination -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheets -->
   <link rel="stylesheet" href="css/theme.css">
@@ -56,6 +59,9 @@
 </head>
 <body>
 
+  <!-- Skip-to-content accessible target -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Custom Scroll Progress -->
   <div id="scroll-progress-container" aria-hidden="true">
     <div id="scroll-progress-bar"></div>
@@ -83,9 +89,9 @@
   <nav class="navbar" aria-label="Main Navigation">
     <div class="nav-container">
       <a href="#" class="nav-logo" aria-label="Harish Gupta Home">
-        <span class="logo-bracket">&lt;</span>
+        <span class="logo-bracket" aria-hidden="true">&lt;</span>
         <span class="logo-text">HG</span>
-        <span class="logo-bracket">&gt;</span>
+        <span class="logo-bracket" aria-hidden="true">&gt;</span>
       </a>
       <ul class="nav-links" role="list">
         <li><a href="#about" class="nav-link">About</a></li>
@@ -114,13 +120,13 @@
   </nav>
 
   <!-- Interactive Hero Section (Bento Inspired Header) -->
-  <header class="hero-section">
+  <header class="hero-section" aria-label="Introduction Section">
     <div class="hero-grid">
       <!-- Welcome card -->
       <div class="hero-card hero-welcome scroll-reveal">
         <div class="badge-row">
           <span class="hero-badge">Available for Internships</span>
-          <span class="hero-ping-container">
+          <span class="hero-ping-container" aria-hidden="true">
             <span class="hero-ping"></span>
             <span class="hero-ping-dot"></span>
           </span>
@@ -135,11 +141,11 @@
         <div class="hero-ctas">
           <a href="#projects" class="btn btn-primary">
             Explore Work
-            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
           <a href="resume.pdf" class="btn btn-secondary" download>
             Resume
-            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           </a>
         </div>
       </div>
@@ -191,16 +197,16 @@
   </header>
 
   <!-- Main Bento Grid Section -->
-  <main class="bento-container">
+  <main id="main-content" class="bento-container">
 
     <!-- About Section -->
-    <section id="about" class="bento-section">
+    <section id="about" class="bento-section" aria-label="About S V S Harish Gupta">
       <div class="bento-grid-layout">
 
         <!-- Big Bio block -->
         <div class="bento-card col-span-2 scroll-reveal">
           <div class="card-header">
-            <div class="card-icon">
+            <div class="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </div>
             <h3 class="card-heading">About Me</h3>
@@ -218,7 +224,7 @@
         <!-- Academic Snapshot Card -->
         <div class="bento-card col-span-1 scroll-reveal">
           <div class="card-header">
-            <div class="card-icon">
+            <div class="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
             </div>
             <h3 class="card-heading">Education</h3>
@@ -237,9 +243,9 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="bento-section">
+    <section id="skills" class="bento-section" aria-labelledby="skills-section-title">
       <div class="section-title-wrapper scroll-reveal">
-        <h2 class="section-title">Technical Expertise</h2>
+        <h2 id="skills-section-title" class="section-title">Technical Expertise</h2>
         <p class="section-subtitle">Categorized technologies and runtime environments I actively work with.</p>
       </div>
 
@@ -248,10 +254,10 @@
         <!-- Interactive Skills Card -->
         <div class="bento-card col-span-3 scroll-reveal">
           <div class="card-header">
-            <div class="card-icon">
+            <div class="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
             </div>
-            <h3 class="card-heading">Tech Stack & Skill Matrix</h3>
+            <h3 class="card-heading">Tech Stack &amp; Skill Matrix</h3>
           </div>
 
           <div class="skills-matrix">
@@ -268,11 +274,11 @@
             </div>
 
             <div class="skill-category">
-              <h4 class="skill-cat-title">Frameworks & Libraries</h4>
+              <h4 class="skill-cat-title">Frameworks &amp; Libraries</h4>
               <div class="skill-tags">
                 <span class="skill-tag">React.js</span>
                 <span class="skill-tag">Next.js (App Router)</span>
-                <span class="skill-tag">Tailwind CSS (v3 & v4)</span>
+                <span class="skill-tag">Tailwind CSS (v3 &amp; v4)</span>
                 <span class="skill-tag">Streamlit</span>
                 <span class="skill-tag">Pandas / NumPy</span>
                 <span class="skill-tag">Scikit-Learn</span>
@@ -280,12 +286,12 @@
             </div>
 
             <div class="skill-category">
-              <h4 class="skill-cat-title">Cloud & Databases</h4>
+              <h4 class="skill-cat-title">Cloud &amp; Databases</h4>
               <div class="skill-tags">
-                <span class="skill-tag">Firebase Auth & DB</span>
+                <span class="skill-tag">Firebase Auth &amp; DB</span>
                 <span class="skill-tag">Relational DBMS (MySQL/PostgreSQL)</span>
                 <span class="skill-tag">AWS (Foundations)</span>
-                <span class="skill-tag">Vercel & Git/GitHub</span>
+                <span class="skill-tag">Vercel &amp; Git/GitHub</span>
               </div>
             </div>
           </div>
@@ -295,15 +301,15 @@
     </section>
 
     <!-- GitHub Statistics Section -->
-    <section id="github-stats" class="bento-section">
+    <section id="github-stats" class="bento-section" aria-label="GitHub Analytics">
       <div class="bento-grid-layout">
         <!-- Developer Telemetry Grid Item -->
         <div class="bento-card col-span-3 scroll-reveal">
           <div class="card-header">
-            <div class="card-icon">
+            <div class="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             </div>
-            <h3 class="card-heading">Telemetry & GitHub Insights</h3>
+            <h3 class="card-heading">Telemetry &amp; GitHub Insights</h3>
           </div>
           <div class="github-stats-wrapper">
             <div class="github-info-text">
@@ -311,7 +317,7 @@
                 Actively pushing clean modules, committing semantic git code, and structuring responsive web/AI components.
               </p>
               <a href="https://github.com/harishguptasvs-cmyk" target="_blank" rel="noopener noreferrer" class="btn btn-secondary inline-flex">
-                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="margin-right-sm"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="margin-right-sm" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 Visit Profile
               </a>
             </div>
@@ -342,9 +348,9 @@
     </section>
 
     <!-- Featured Projects Section -->
-    <section id="projects" class="bento-section">
+    <section id="projects" class="bento-section" aria-labelledby="projects-section-title">
       <div class="section-title-wrapper scroll-reveal">
-        <h2 class="section-title">Case Studies & Projects</h2>
+        <h2 id="projects-section-title" class="section-title">Case Studies &amp; Projects</h2>
         <p class="section-subtitle">High-quality, production-ready systems reviewed against real-world parameters.</p>
       </div>
 
@@ -573,9 +579,9 @@
     </section>
 
     <!-- Professional Timeline & Journey Section -->
-    <section id="experience" class="bento-section">
+    <section id="experience" class="bento-section" aria-labelledby="timeline-section-title">
       <div class="section-title-wrapper scroll-reveal">
-        <h2 class="section-title">Interactive Development Timeline</h2>
+        <h2 id="timeline-section-title" class="section-title">Interactive Development Timeline</h2>
         <p class="section-subtitle">Chronological record of academic achievements, hacking milestones, and core systems built.</p>
       </div>
 
@@ -625,9 +631,9 @@
     </section>
 
     <!-- Professional Certifications Section -->
-    <section id="certifications" class="bento-section">
+    <section id="certifications" class="bento-section" aria-labelledby="certs-section-title">
       <div class="section-title-wrapper scroll-reveal">
-        <h2 class="section-title">Certifications</h2>
+        <h2 id="certs-section-title" class="section-title">Certifications</h2>
         <p class="section-subtitle">Credentialed credentials confirming specialized training from globally recognized academies.</p>
       </div>
 
@@ -676,9 +682,9 @@
     </section>
 
     <!-- Contact & Engagement Terminal Section -->
-    <section id="contact" class="bento-section">
+    <section id="contact" class="bento-section" aria-labelledby="contact-section-title">
       <div class="section-title-wrapper scroll-reveal">
-        <h2 class="section-title">Get In Touch</h2>
+        <h2 id="contact-section-title" class="section-title">Get In Touch</h2>
         <p class="section-subtitle">Reach out for collaborations, internships, or high-performance engineering queries.</p>
       </div>
 
@@ -687,7 +693,7 @@
         <!-- Interactive Terminal Contact form -->
         <div class="bento-card col-span-2 scroll-reveal">
           <div class="card-header">
-            <div class="card-icon">
+            <div class="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </div>
             <h3 class="card-heading">Telemetry Mail Service</h3>
@@ -719,7 +725,7 @@
         <div class="bento-card col-span-1 scroll-reveal flex-column justify-between">
           <div>
             <div class="card-header">
-              <div class="card-icon">
+              <div class="card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
               </div>
               <h3 class="card-heading">Direct Telemetry</h3>
@@ -743,7 +749,7 @@
             <span class="font-mono text-dim block margin-bottom-sm">// SECURE_LINKS</span>
             <div class="social-buttons">
               <a href="https://github.com/harishguptasvs-cmyk" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
               </a>
             </div>
           </div>
@@ -755,14 +761,16 @@
   </main>
 
   <!-- Command Palette Modal (Ctrl/Cmd + K Overlay) -->
-  <dialog id="cmd-palette" class="cmd-palette-dialog">
+  <dialog id="cmd-palette" class="cmd-palette-dialog" aria-modal="true" aria-labelledby="cmd-dialog-title" role="dialog" aria-describedby="cmd-dialog-desc">
     <div class="cmd-palette-container font-mono">
+      <div id="cmd-dialog-title" class="sr-only">Command Palette Navigation Menu</div>
+      <div id="cmd-dialog-desc" class="sr-only">Search and run commands, or jump to specific website sections using arrow keys and enter.</div>
       <div class="cmd-palette-header">
-        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="cmd-search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="cmd-input" placeholder="Type a command or section..." autocomplete="off" aria-label="Search command palette">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="cmd-search-icon" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmd-input" placeholder="Type a command or section..." autocomplete="off" aria-label="Search command palette" aria-autocomplete="list" aria-controls="cmd-results">
         <button id="cmd-close-btn" class="cmd-close-btn font-mono" aria-label="Close Command Palette">ESC</button>
       </div>
-      <div class="cmd-results" id="cmd-results" role="listbox">
+      <div class="cmd-results" id="cmd-results" role="listbox" aria-label="Search Results">
         <!-- JS inserts results here dynamically -->
       </div>
       <div class="cmd-palette-footer">
@@ -774,9 +782,9 @@
   <!-- Standard footer -->
   <footer class="main-footer">
     <div class="footer-container">
-      <p class="font-mono text-dim">&copy; 2026 S V S Harish Gupta. Redesigned & built to production standard.</p>
+      <p class="font-mono text-dim">&copy; 2026 S V S Harish Gupta. Redesigned &amp; built to production standard.</p>
       <button id="back-to-top" class="back-to-top-btn" aria-label="Scroll back to top">
-        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
       </button>
     </div>
   </footer>

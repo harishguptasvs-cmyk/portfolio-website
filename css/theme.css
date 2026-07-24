@@ -3,15 +3,15 @@
   --bg-primary: #020617; /* Slate 950 */
   --bg-secondary: #0f172a; /* Slate 900 */
   --bg-tertiary: #1e293b; /* Slate 800 */
-  --border-color: rgba(148, 163, 184, 0.12); /* Subtle Slate border */
+  --border-color: rgba(148, 163, 184, 0.15); /* Subtle Slate border */
   --text-primary: #f8fafc; /* Slate 50 */
-  --text-secondary: #94a3b8; /* Slate 400 */
-  --text-muted: #64748b; /* Slate 500 */
+  --text-secondary: #cbd5e1; /* Slate 300 - enhanced contrast for AAA accessibility over #020617 */
+  --text-muted: #94a3b8; /* Slate 400 - enhanced contrast */
   --accent-color: #3b82f6; /* Modern Tech Blue */
-  --accent-hover: #2563eb;
+  --accent-hover: #60a5fa;
   --accent-glow: rgba(59, 130, 246, 0.25);
-  --terminal-prompt: #10b981; /* Emerald 500 */
-  --terminal-key: #f43f5e; /* Rose 500 */
+  --terminal-prompt: #34d399; /* Emerald 400 - improved dark mode visibility */
+  --terminal-key: #fb7185; /* Rose 400 */
   --terminal-val: #38bdf8; /* Sky 400 */
   --card-bg: rgba(15, 23, 42, 0.65); /* Elegant translucent slate */
   --backdrop-blur: 16px;
@@ -26,19 +26,19 @@
 }
 
 :root[data-theme="light"] {
-  --bg-primary: #f8fafc; /* Slate 50 */
-  --bg-secondary: #f1f5f9; /* Slate 100 */
+  --bg-primary: #ffffff; /* pure white for contrast */
+  --bg-secondary: #f8fafc; /* Slate 50 */
   --bg-tertiary: #e2e8f0; /* Slate 200 */
-  --border-color: rgba(148, 163, 184, 0.2);
+  --border-color: rgba(148, 163, 184, 0.25);
   --text-primary: #0f172a; /* Slate 900 */
-  --text-secondary: #475569; /* Slate 600 */
+  --text-secondary: #334155; /* Slate 700 - enhanced light mode contrast ratio (over 4.5:1) */
   --text-muted: #64748b; /* Slate 500 */
-  --accent-color: #2563eb; /* Modern Blue */
-  --accent-hover: #1d4ed8;
-  --accent-glow: rgba(37, 99, 235, 0.15);
-  --terminal-prompt: #059669; /* Emerald 600 */
-  --terminal-key: #e11d48; /* Rose 600 */
-  --terminal-val: #0284c7; /* Sky 600 */
+  --accent-color: #1d4ed8; /* Modern High-Contrast Blue (WCAG compliant) */
+  --accent-hover: #1e40af;
+  --accent-glow: rgba(29, 78, 216, 0.15);
+  --terminal-prompt: #047857; /* Emerald 700 - high contrast green */
+  --terminal-key: #be123c; /* Rose 700 - high contrast rose */
+  --terminal-val: #0369a1; /* Sky 700 - high contrast sky */
   --card-bg: rgba(255, 255, 255, 0.85); /* Clean white card */
   --backdrop-blur: 16px;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -54,6 +54,32 @@
 /* Base resets & Typography Setup */
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+/* Custom Accessible Focus Rings for WCAG 2.1 Compliance */
+:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* Skip link for keyboard/screen reader navigability */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background-color: var(--accent-color);
+  color: #ffffff !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  z-index: 9999;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top var(--transition-speed-fast) cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-xl);
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
 }
 
 html {
@@ -103,3 +129,16 @@ body {
 .flex-column { display: flex; flex-direction: column; }
 .justify-between { justify-content: space-between; }
 .hide { display: none !important; }
+
+/* Screen reader only utility class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

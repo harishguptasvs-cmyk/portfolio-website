@@ -26,18 +26,32 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedIndex = 0;
   let filteredCommands = [...commands];
 
+  // Keep track of the element that had focus before opening dialog to restore it upon close
+  let previousActiveElement = null;
+
   // Open Command Palette
   function openPalette() {
+    previousActiveElement = document.activeElement;
     dialog.showModal();
     input.value = '';
     selectedIndex = 0;
     renderCommands();
+
+    // Explicit accessible state updates
+    dialog.setAttribute('aria-expanded', 'true');
+    trigger.setAttribute('aria-expanded', 'true');
+
     setTimeout(() => input.focus(), 50);
   }
 
   // Close Command Palette
   function closePalette() {
     dialog.close();
+    dialog.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-expanded', 'false');
+    if (previousActiveElement && previousActiveElement.focus) {
+      previousActiveElement.focus();
+    }
   }
 
   // Render list of commands
@@ -94,21 +108,46 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCommands();
   });
 
-  // Handle Keyboard inside Dialogue
+  // Handle Keyboard inside Dialogue, including accessible focus trap
   input.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      selectedIndex = (selectedIndex + 1) % filteredCommands.length;
-      renderCommands();
+      if (filteredCommands.length > 0) {
+        selectedIndex = (selectedIndex + 1) % filteredCommands.length;
+        renderCommands();
+      }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      selectedIndex = (selectedIndex - 1 + filteredCommands.length) % filteredCommands.length;
-      renderCommands();
+      if (filteredCommands.length > 0) {
+        selectedIndex = (selectedIndex - 1 + filteredCommands.length) % filteredCommands.length;
+        renderCommands();
+      }
     } else if (e.key === 'Enter') {
       e.preventDefault();
       if (filteredCommands[selectedIndex]) {
         filteredCommands[selectedIndex].action();
         closePalette();
+      }
+    }
+  });
+
+  // Focus trap inside the <dialog> overlay for screen readers & tab users
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      const focusableElements = dialog.querySelectorAll('input, button, [role="option"]');
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      if (e.shiftKey) { // Shift + Tab
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else { // Tab
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
       }
     }
   });

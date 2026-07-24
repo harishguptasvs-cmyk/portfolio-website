@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Scroll Progress Indicator
+  // Scroll Progress Indicator - utilizing passive event listener to optimize Core Web Vitals (avoiding jank on mobile scroll)
   window.addEventListener('scroll', () => {
     const scrollProgress = document.getElementById('scroll-progress-bar');
     if (scrollProgress) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const scrolled = (windowHeight > 0) ? (window.scrollY / windowHeight) * 100 : 0;
       scrollProgress.style.width = scrolled + '%';
     }
-  });
+  }, { passive: true });
 
   // Back to top button
   const backToTopBtn = document.getElementById('back-to-top');
