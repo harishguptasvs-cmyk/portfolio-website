@@ -1,0 +1,105 @@
+/* --- THEME SYSTEM AND COLOR PALETTE (CSS TOKENS) --- */
+:root[data-theme="dark"] {
+  --bg-primary: #020617; /* Slate 950 */
+  --bg-secondary: #0f172a; /* Slate 900 */
+  --bg-tertiary: #1e293b; /* Slate 800 */
+  --border-color: rgba(148, 163, 184, 0.12); /* Subtle Slate border */
+  --text-primary: #f8fafc; /* Slate 50 */
+  --text-secondary: #94a3b8; /* Slate 400 */
+  --text-muted: #64748b; /* Slate 500 */
+  --accent-color: #3b82f6; /* Modern Tech Blue */
+  --accent-hover: #2563eb;
+  --accent-glow: rgba(59, 130, 246, 0.25);
+  --terminal-prompt: #10b981; /* Emerald 500 */
+  --terminal-key: #f43f5e; /* Rose 500 */
+  --terminal-val: #38bdf8; /* Sky 400 */
+  --card-bg: rgba(15, 23, 42, 0.65); /* Elegant translucent slate */
+  --backdrop-blur: 16px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+  --shadow-inset: inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+  --transition-speed-fast: 0.2s;
+  --transition-speed-normal: 0.3s;
+  --transition-speed-slow: 0.5s;
+}
+
+:root[data-theme="light"] {
+  --bg-primary: #f8fafc; /* Slate 50 */
+  --bg-secondary: #f1f5f9; /* Slate 100 */
+  --bg-tertiary: #e2e8f0; /* Slate 200 */
+  --border-color: rgba(148, 163, 184, 0.2);
+  --text-primary: #0f172a; /* Slate 900 */
+  --text-secondary: #475569; /* Slate 600 */
+  --text-muted: #64748b; /* Slate 500 */
+  --accent-color: #2563eb; /* Modern Blue */
+  --accent-hover: #1d4ed8;
+  --accent-glow: rgba(37, 99, 235, 0.15);
+  --terminal-prompt: #059669; /* Emerald 600 */
+  --terminal-key: #e11d48; /* Rose 600 */
+  --terminal-val: #0284c7; /* Sky 600 */
+  --card-bg: rgba(255, 255, 255, 0.85); /* Clean white card */
+  --backdrop-blur: 16px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+  --shadow-inset: inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+  --transition-speed-fast: 0.2s;
+  --transition-speed-normal: 0.3s;
+  --transition-speed-slow: 0.5s;
+}
+
+/* Base resets & Typography Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background-color var(--transition-speed-normal) ease, color var(--transition-speed-normal) ease;
+}
+
+/* Utility classes */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+}
+
+.text-dim {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.highlight-text {
+  color: var(--accent-color);
+  background: linear-gradient(135deg, var(--accent-color), #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-glow {
+  text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.margin-bottom-sm { margin-bottom: 0.5rem; }
+.margin-right-sm { margin-right: 0.5rem; }
+.block { display: block; }
+.inline-flex { display: inline-flex; align-items: center; }
+.flex-column { display: flex; flex-direction: column; }
+.justify-between { justify-content: space-between; }
+.hide { display: none !important; }
