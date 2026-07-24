@@ -1,145 +1,790 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>S V S Harish Gupta | Software Engineer</title>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="S V S Harish Gupta - Software Engineer. Information Technology student at MVGR College of Engineering. Specialized in AI, Web Applications, and Full-Stack Development.">
+  <meta name="keywords" content="S V S Harish Gupta, Harish Gupta, Software Engineer, Full-Stack Developer, MVGR, Portfolio, AI Developer, Web Developer, React, Python, Java, Next.js, Streamlit">
+  <meta name="author" content="S V S Harish Gupta">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://harishguptasvs-cmyk.github.io/">
+  <meta property="og:title" content="S V S Harish Gupta | Software Engineer">
+  <meta property="og:description" content="Explore my portfolio showcasing production-grade web applications, AI models, and real-world system integrations.">
+  <meta property="og:image" content="profile.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://harishguptasvs-cmyk.github.io/">
+  <meta property="twitter:title" content="S V S Harish Gupta | Software Engineer">
+  <meta property="twitter:description" content="Explore my portfolio showcasing production-grade web applications, AI models, and real-world system integrations.">
+  <meta property="twitter:image" content="profile.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "S V S Harish Gupta",
+    "jobTitle": "Software Engineer",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Maharaj Vijayaram Gajapathi Raj College of Engineering (MVGR)"
+    },
+    "url": "https://harishguptasvs-cmyk.github.io/",
+    "sameAs": [
+      "https://github.com/harishguptasvs-cmyk"
+    ],
+    "knowsAbout": ["Software Engineering", "Full-Stack Development", "Artificial Intelligence", "Python", "Java", "JavaScript", "React", "Next.js", "SQL", "DBMS"]
+  }
+  </script>
 </head>
-
 <body>
 
-<!-- Navbar -->
-<nav>
-  <h2>My Portfolio</h2>
-  <div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <!-- Custom Scroll Progress -->
+  <div id="scroll-progress-container" aria-hidden="true">
+    <div id="scroll-progress-bar"></div>
   </div>
-</nav>
 
-<!-- Hero -->
-<header>
-  <img src="profile.jpg" alt="Profile">
-  <h1>S V S Harish Gupta</h1>
-  <p>Frontend Developer | Web Enthusiast</p>
-
-  <a href="#projects" class="btn">View Projects</a>
-  <a href="resume.pdf" class="btn-outline" download>Download Resume</a>
-</header>
-
-<!-- About -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I am a passionate B.Tech IT student focused on frontend and web development.
-    I enjoy building clean, responsive, and user-friendly applications.
-    I continuously improve my skills through real-world projects.
-  </p>
-</section>
-
-<!-- Skills Filter -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="filters">
-    <button class="active" onclick="filterProjects('all', this)">All</button>
-    <button onclick="filterProjects('html', this)">HTML</button>
-    <button onclick="filterProjects('css', this)">CSS</button>
-    <button onclick="filterProjects('js', this)">JavaScript</button>
-    <button onclick="filterProjects('python', this)">Python</button>
-    <button onclick="filterProjects('java', this)">Java</button>
+  <!-- Loading Screen Animation -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">HARISH GUPTA</span>
+        <span class="logo-slash">/</span>
+        <span class="logo-bracket">&gt;</span>
+      </div>
+      <div class="loader-status">
+        <span class="loader-percent">0</span>%
+      </div>
+      <div class="loader-track">
+        <div class="loader-fill"></div>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- Projects -->
-<section id="projects">
-  <h2>Projects</h2>
-
-  <div class="cards">
-
-    <!-- HTML -->
-    <div class="card html show">
-      <h3>HTML Resume Page</h3>
-      <p>Basic resume built using pure HTML.</p>
-      <a href="https://github.com/harishguptasvs-cmyk/html-resume-page" target="_blank" class="btn-small">GitHub</a>
+  <!-- Header / Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" aria-label="Harish Gupta Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">HG</span>
+        <span class="logo-bracket">&gt;</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Timeline</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <!-- Interactive Theme Switcher -->
+        <button id="theme-toggle" class="nav-action-btn" aria-label="Toggle light and dark mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+        <!-- Command Palette Trigger Hint -->
+        <button id="cmd-k-trigger" class="cmd-k-badge" aria-label="Open Command Palette">
+          <span class="cmd-text">Cmd+K</span>
+        </button>
+      </div>
     </div>
+  </nav>
 
-    <!-- CSS -->
-    <div class="card css show">
-      <h3>CSS Landing Page</h3>
-      <p>Modern styled landing page using CSS.</p>
-      <a href="https://github.com/harishguptasvs-cmyk/css-landing-page" target="_blank" class="btn-small">GitHub</a>
+  <!-- Interactive Hero Section (Bento Inspired Header) -->
+  <header class="hero-section">
+    <div class="hero-grid">
+      <!-- Welcome card -->
+      <div class="hero-card hero-welcome scroll-reveal">
+        <div class="badge-row">
+          <span class="hero-badge">Available for Internships</span>
+          <span class="hero-ping-container">
+            <span class="hero-ping"></span>
+            <span class="hero-ping-dot"></span>
+          </span>
+        </div>
+        <h1 class="hero-title">
+          Hi, I am <span class="highlight-text text-glow">S V S Harish Gupta</span>
+        </h1>
+        <h2 class="hero-subtitle">Software Engineer</h2>
+        <p class="hero-description">
+          An Information Technology student specializing in high-performance web applications, machine learning, and secure software ecosystems.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">
+            Explore Work
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="resume.pdf" class="btn btn-secondary" download>
+            Resume
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Telemetry Terminal card -->
+      <div class="hero-card hero-terminal scroll-reveal">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">guest@harish-gupta:~</span>
+        </div>
+        <div class="terminal-body font-mono">
+          <p class="terminal-line"><span class="term-prompt">$</span> cat intro.json</p>
+          <div class="terminal-output">
+            <p>{</p>
+            <p>&nbsp;&nbsp;<span class="term-key">"education"</span>: <span class="term-val">"B.Tech (IT)"</span>,</p>
+            <p>&nbsp;&nbsp;<span class="term-key">"institution"</span>: <span class="term-val">"MVGR College"</span>,</p>
+            <p>&nbsp;&nbsp;<span class="term-key">"performance"</span>: <span class="term-val">"72% Aggregate"</span>,</p>
+            <p>&nbsp;&nbsp;<span class="term-key">"philosophy"</span>: <span class="term-val">"Solve real-world problems."</span></p>
+            <p>}</p>
+          </div>
+          <p class="terminal-line"><span class="term-prompt">$</span> cat stack.sh</p>
+          <p class="terminal-output text-dim">React, Python, Next.js, ML, Firebase, SQL</p>
+          <p class="terminal-line blink-line"><span class="term-prompt">$</span> <span class="term-cursor"></span></p>
+        </div>
+      </div>
+
+      <!-- Quick stats card -->
+      <div class="hero-card hero-stats scroll-reveal">
+        <div class="stats-container">
+          <div class="stat-item">
+            <div class="stat-number" data-target="7">0</div>
+            <div class="stat-label">Core Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="8">0</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">Lighthouse Target</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <!-- JS -->
-    <div class="card js show">
-      <h3>Premium Digital Clock</h3>
-      <p>Animated clock with glass UI and effects.</p>
-      <a href="https://github.com/harishguptasvs-cmyk/js-premium-digital-clock/blob/main/README.md" target="_blank" class="btn-small">GitHub</a>
+  <!-- Main Bento Grid Section -->
+  <main class="bento-container">
+
+    <!-- About Section -->
+    <section id="about" class="bento-section">
+      <div class="bento-grid-layout">
+
+        <!-- Big Bio block -->
+        <div class="bento-card col-span-2 scroll-reveal">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <h3 class="card-heading">About Me</h3>
+          </div>
+          <div class="bio-content">
+            <p>
+              I am a dedicated <strong>Information Technology</strong> undergraduate student at <strong>Maharaj Vijayaram Gajapathi Raj College of Engineering (MVGR)</strong> with a profound enthusiasm for building scalable software, designing clean systems, and integrating AI into practical consumer and enterprise solutions.
+            </p>
+            <p>
+              My engineering philosophy focuses on crafting products that balance technical excellence with an outstanding user experience. By bridging frontend technologies with intelligent backends and databases, I build cohesive, reliable architectures that solve immediate real-world challenges.
+            </p>
+          </div>
+        </div>
+
+        <!-- Academic Snapshot Card -->
+        <div class="bento-card col-span-1 scroll-reveal">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+            </div>
+            <h3 class="card-heading">Education</h3>
+          </div>
+          <div class="education-content">
+            <div class="edu-item">
+              <span class="edu-date">2023 - 2027</span>
+              <h4 class="edu-title">B.Tech in Information Technology</h4>
+              <p class="edu-institution">MVGR College of Engineering</p>
+              <div class="edu-stat-pill">Academic Agg.: 72%</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bento-section">
+      <div class="section-title-wrapper scroll-reveal">
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-subtitle">Categorized technologies and runtime environments I actively work with.</p>
+      </div>
+
+      <div class="bento-grid-layout">
+
+        <!-- Interactive Skills Card -->
+        <div class="bento-card col-span-3 scroll-reveal">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3 class="card-heading">Tech Stack & Skill Matrix</h3>
+          </div>
+
+          <div class="skills-matrix">
+            <div class="skill-category">
+              <h4 class="skill-cat-title">Languages</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">JavaScript (ES6+)</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">SQL</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4 class="skill-cat-title">Frameworks & Libraries</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Next.js (App Router)</span>
+                <span class="skill-tag">Tailwind CSS (v3 & v4)</span>
+                <span class="skill-tag">Streamlit</span>
+                <span class="skill-tag">Pandas / NumPy</span>
+                <span class="skill-tag">Scikit-Learn</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h4 class="skill-cat-title">Cloud & Databases</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Firebase Auth & DB</span>
+                <span class="skill-tag">Relational DBMS (MySQL/PostgreSQL)</span>
+                <span class="skill-tag">AWS (Foundations)</span>
+                <span class="skill-tag">Vercel & Git/GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GitHub Statistics Section -->
+    <section id="github-stats" class="bento-section">
+      <div class="bento-grid-layout">
+        <!-- Developer Telemetry Grid Item -->
+        <div class="bento-card col-span-3 scroll-reveal">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </div>
+            <h3 class="card-heading">Telemetry & GitHub Insights</h3>
+          </div>
+          <div class="github-stats-wrapper">
+            <div class="github-info-text">
+              <p>
+                Actively pushing clean modules, committing semantic git code, and structuring responsive web/AI components.
+              </p>
+              <a href="https://github.com/harishguptasvs-cmyk" target="_blank" rel="noopener noreferrer" class="btn btn-secondary inline-flex">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="margin-right-sm"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                Visit Profile
+              </a>
+            </div>
+            <div class="github-visual-mock font-mono">
+              <div class="activity-grid">
+                <!-- Static grid visualizer indicating activity density without massive external resources -->
+                <div class="grid-col"><span class="day lvl-0"></span><span class="day lvl-1"></span><span class="day lvl-2"></span><span class="day lvl-1"></span><span class="day lvl-0"></span><span class="day lvl-3"></span><span class="day lvl-4"></span></div>
+                <div class="grid-col"><span class="day lvl-1"></span><span class="day lvl-2"></span><span class="day lvl-0"></span><span class="day lvl-3"></span><span class="day lvl-4"></span><span class="day lvl-1"></span><span class="day lvl-2"></span></div>
+                <div class="grid-col"><span class="day lvl-3"></span><span class="day lvl-4"></span><span class="day lvl-1"></span><span class="day lvl-0"></span><span class="day lvl-2"></span><span class="day lvl-3"></span><span class="day lvl-0"></span></div>
+                <div class="grid-col"><span class="day lvl-0"></span><span class="day lvl-1"></span><span class="day lvl-3"></span><span class="day lvl-4"></span><span class="day lvl-2"></span><span class="day lvl-0"></span><span class="day lvl-1"></span></div>
+                <div class="grid-col"><span class="day lvl-2"></span><span class="day lvl-3"></span><span class="day lvl-4"></span><span class="day lvl-1"></span><span class="day lvl-0"></span><span class="day lvl-2"></span><span class="day lvl-3"></span></div>
+                <div class="grid-col"><span class="day lvl-1"></span><span class="day lvl-0"></span><span class="day lvl-2"></span><span class="day lvl-3"></span><span class="day lvl-4"></span><span class="day lvl-1"></span><span class="day lvl-2"></span></div>
+                <div class="grid-col"><span class="day lvl-4"></span><span class="day lvl-2"></span><span class="day lvl-1"></span><span class="day lvl-3"></span><span class="day lvl-0"></span><span class="day lvl-4"></span><span class="day lvl-3"></span></div>
+              </div>
+              <div class="activity-labels">
+                <span>Less</span>
+                <span class="day lvl-0"></span>
+                <span class="day lvl-1"></span>
+                <span class="day lvl-2"></span>
+                <span class="day lvl-3"></span>
+                <span class="day lvl-4"></span>
+                <span>More</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="bento-section">
+      <div class="section-title-wrapper scroll-reveal">
+        <h2 class="section-title">Case Studies & Projects</h2>
+        <p class="section-subtitle">High-quality, production-ready systems reviewed against real-world parameters.</p>
+      </div>
+
+      <!-- Projects Filtering Menu -->
+      <div class="project-filters scroll-reveal" role="tablist">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Systems</button>
+        <button class="filter-btn" data-filter="ai-ml" role="tab" aria-selected="false">AI & ML</button>
+        <button class="filter-btn" data-filter="react-next" role="tab" aria-selected="false">React / Next.js</button>
+        <button class="filter-btn" data-filter="systems" role="tab" aria-selected="false">Other Engineering</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- CASE STUDY 1: SPENDWISE AI -->
+        <article class="project-card bento-card scroll-reveal" data-category="react-next" data-tags="Next.js, TypeScript, React 19, Tailwind CSS v4, LocalStorage">
+          <div class="project-header">
+            <span class="project-badge">Featured System</span>
+            <h3 class="project-title">SpendWise AI</h3>
+            <p class="project-desc">A premium Next.js 16 analytics app designed to audit, track, and optimize software subscription spending for AI services across teams.</p>
+          </div>
+          <div class="project-meta font-mono">
+            <span class="tech-tag">Next.js 16</span>
+            <span class="tech-tag">React 19</span>
+            <span class="tech-tag">Tailwind v4</span>
+            <span class="tech-tag">TypeScript</span>
+          </div>
+          <div class="case-study-trigger">
+            <button class="btn btn-secondary btn-sm toggle-details-btn">View Full Engineering Audit</button>
+          </div>
+          <!-- Hidden Case Study Container -->
+          <div class="project-details-expanded font-mono">
+            <div class="details-section">
+              <span class="details-label">// CHALLENGE</span>
+              <p class="details-p">Organizations frequently face subscription sprawl from untracked developer AI accounts (ChatGPT Plus, Claude Team, Cursor Business). Estimating optimized team plans versus personal plans is a complex, data-heavy telemetry puzzle.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// SOLUTION</span>
+              <p class="details-p">Engineered a React 19 telemetry app utilizing optimized client-side state hooks to perform real-time audit computations. Saves user input locally via persistent local storage, estimating optimal volume-tier subscriptions.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// PERFORMANCE & KEY FEATURES</span>
+              <p class="details-p">Designed zero-dependency rendering logic leveraging state memoization. Responsive bento telemetry, instant report compilation with high-fidelity analytics presentation.</p>
+            </div>
+            <div class="details-links font-sans">
+              <a href="https://github.com/harishguptasvs-cmyk/spendwise-ai" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 2: AI-POWERED STUDY PLAN GENERATOR -->
+        <article class="project-card bento-card scroll-reveal" data-category="ai-ml" data-tags="Python, Streamlit, Pandas, NumPy, Scikit-Learn, Plotly, ReportLab">
+          <div class="project-header">
+            <span class="project-badge">Machine Learning</span>
+            <h3 class="project-title">AI Study Planner</h3>
+            <p class="project-desc">An enterprise educational planning engine combining clustering algorithms with multi-format academic tracking generators.</p>
+          </div>
+          <div class="project-meta font-mono">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Scikit-Learn</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">ReportLab</span>
+          </div>
+          <div class="case-study-trigger">
+            <button class="btn btn-secondary btn-sm toggle-details-btn">View Full Engineering Audit</button>
+          </div>
+          <div class="project-details-expanded font-mono">
+            <div class="details-section">
+              <span class="details-label">// CHALLENGE</span>
+              <p class="details-p">Static curriculums fail to accommodate variance in student velocities, performance metrics, and learning curves, resulting in suboptimal knowledge retention.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// SOLUTION</span>
+              <p class="details-p">Built an ML categorization module utilizing K-Means Clustering to group student academic attributes. The algorithm customizes session durations and materials. Implemented programmatic dynamic PDF creation via ReportLab binary streams.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// PERFORMANCE & KEY FEATURES</span>
+              <p class="details-p">Precompiled K-Means matrices for instant inference; integrated high-performance vector rendering in Plotly. Streamlined data validation pipelines to prevent out-of-bounds metrics.</p>
+            </div>
+            <div class="details-links font-sans">
+              <a href="https://github.com/harishguptasvs-cmyk/study-plan-master" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 3: STAR WARS UNIVERSE EXPLORER -->
+        <article class="project-card bento-card scroll-reveal" data-category="react-next" data-tags="React, Vite, Tailwind CSS, React Router, Canvas">
+          <div class="project-header">
+            <span class="project-badge">Rich UX Platform</span>
+            <h3 class="project-title">Star Wars Universe</h3>
+            <p class="project-desc">A premium frontend platform featuring high-end visual systems, dynamic custom lightsaber builder controls, and interactive gaming layers.</p>
+          </div>
+          <div class="project-meta font-mono">
+            <span class="tech-tag">React (Vite)</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Canvas Animation</span>
+            <span class="tech-tag">React Router</span>
+          </div>
+          <div class="case-study-trigger">
+            <button class="btn btn-secondary btn-sm toggle-details-btn">View Full Engineering Audit</button>
+          </div>
+          <div class="project-details-expanded font-mono">
+            <div class="details-section">
+              <span class="details-label">// CHALLENGE</span>
+              <p class="details-p">Heavy graphic and animation components easily throttle the browser main-thread, resulting in visible framerate drop on mobile systems.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// SOLUTION</span>
+              <p class="details-p">Engineered a highly optimized canvas-based StarField background using a particle loop without DOM re-renders. Combined state vectors with lightweight CSS transitions for the custom hilt/crystal custom builder.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// PERFORMANCE & KEY FEATURES</span>
+              <p class="details-p">Ensured 60 FPS animation loop performance. Used programmatic asset caching, highly-modular routing structures, and fluid responsive layouts across device screens.</p>
+            </div>
+            <div class="details-links font-sans">
+              <a href="https://github.com/harishguptasvs-cmyk/star-wars-universe" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 4: EDUSPHERE AI STUDY ENGINE -->
+        <article class="project-card bento-card scroll-reveal" data-category="react-next" data-tags="React, Firebase Auth, Realtime Database, Tailwind CSS">
+          <div class="project-header">
+            <span class="project-badge">EdTech Platform</span>
+            <h3 class="project-title">EduSphere AI</h3>
+            <p class="project-desc">A full-stack learning application integrating DBMS curricular modules, state authentication, and user telemetry metrics.</p>
+          </div>
+          <div class="project-meta font-mono">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Firebase Auth</span>
+            <span class="tech-tag">Realtime DB</span>
+            <span class="tech-tag">Tailwind CSS</span>
+          </div>
+          <div class="case-study-trigger">
+            <button class="btn btn-secondary btn-sm toggle-details-btn">View Full Engineering Audit</button>
+          </div>
+          <div class="project-details-expanded font-mono">
+            <div class="details-section">
+              <span class="details-label">// CHALLENGE</span>
+              <p class="details-p">Maintaining state synchronization between server database systems, authentication checks, and complex client practice tests safely and with minimal lag.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// SOLUTION</span>
+              <p class="details-p">Structured secure Firebase Auth context hooks tied to atomic database writes. Divided the system into DBMS modules containing individualized dynamic practice engines.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// PERFORMANCE & KEY FEATURES</span>
+              <p class="details-p">Reduced API overhead using optimistic UI updates. Features interactive normal form analyzers, real-time assessment feedback, and custom state preservation on browser refresh.</p>
+            </div>
+            <div class="details-links font-sans">
+              <a href="https://github.com/harishguptasvs-cmyk/edusphere-ai-study-engine" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 5: SMART SOS EMERGENCY APP -->
+        <article class="project-card bento-card scroll-reveal" data-category="systems" data-tags="Java, Android SDK, Location API, XML Layouts">
+          <div class="project-header">
+            <span class="project-badge">Native Android</span>
+            <h3 class="project-title">Smart SOS Mobile App</h3>
+            <p class="project-desc">A high-priority native mobile system built to send location telemetry alerts instantly during emergencies.</p>
+          </div>
+          <div class="project-meta font-mono">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Android Studio</span>
+            <span class="tech-tag">Location APIs</span>
+            <span class="tech-tag">XML Layouts</span>
+          </div>
+          <div class="case-study-trigger">
+            <button class="btn btn-secondary btn-sm toggle-details-btn">View Full Engineering Audit</button>
+          </div>
+          <div class="project-details-expanded font-mono">
+            <div class="details-section">
+              <span class="details-label">// CHALLENGE</span>
+              <p class="details-p">In emergency situations, low connectivity or battery constraints can prevent normal communications, making heavy frameworks highly unreliable.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// SOLUTION</span>
+              <p class="details-p">Developed a native, lightweight thread execution architecture using low-level Android Location Services APIs to package geolocation payloads inside compressed payloads.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// PERFORMANCE & KEY FEATURES</span>
+              <p class="details-p">Single-tap alert initialization bypasses slow app loading. Low memory profile ensures smooth operation on older, entry-level mobile devices.</p>
+            </div>
+            <div class="details-links font-sans">
+              <a href="https://github.com/harishguptasvs-cmyk/Smart_SOS_App" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE STUDY 6: AI RESUME ANALYZER -->
+        <article class="project-card bento-card scroll-reveal" data-category="ai-ml" data-tags="Python, NLP, NLTK, Career Metrics">
+          <div class="project-header">
+            <span class="project-badge">Natural Language Processing</span>
+            <h3 class="project-title">AI Resume Analyzer</h3>
+            <p class="project-desc">An intelligent parser extracting technical metrics and keyword density statistics to evaluate job application readiness.</p>
+          </div>
+          <div class="project-meta font-mono">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">NLP (NLTK)</span>
+            <span class="tech-tag">Data Cleaning</span>
+            <span class="tech-tag">Keyword Evaluation</span>
+          </div>
+          <div class="case-study-trigger">
+            <button class="btn btn-secondary btn-sm toggle-details-btn">View Full Engineering Audit</button>
+          </div>
+          <div class="project-details-expanded font-mono">
+            <div class="details-section">
+              <span class="details-label">// CHALLENGE</span>
+              <p class="details-p">Unstructured resume text varies wildy across templates, which leads to key skills and achievements being missed or parsed incorrectly.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// SOLUTION</span>
+              <p class="details-p">Constructed tokenization and stop-word filtering micro-services in Python. Leveraged keyword-density algorithms to output accurate scores against job description keywords.</p>
+            </div>
+            <div class="details-section">
+              <span class="details-label">// PERFORMANCE & KEY FEATURES</span>
+              <p class="details-p">Instant resume parsing under 1.5 seconds. Built dynamic career path mapping and skill gap visualization components.</p>
+            </div>
+            <div class="details-links font-sans">
+              <a href="https://github.com/harishguptasvs-cmyk/ai-resume-analyzer" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Professional Timeline & Journey Section -->
+    <section id="experience" class="bento-section">
+      <div class="section-title-wrapper scroll-reveal">
+        <h2 class="section-title">Interactive Development Timeline</h2>
+        <p class="section-subtitle">Chronological record of academic achievements, hacking milestones, and core systems built.</p>
+      </div>
+
+      <div class="timeline-container bento-card scroll-reveal">
+        <div class="timeline-track" aria-hidden="true"></div>
+
+        <div class="timeline-events">
+
+          <div class="timeline-event scroll-reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Late 2024 / Present</span>
+              <h4 class="timeline-title">Bento SaaS Systems & SpendWise AI</h4>
+              <p class="timeline-desc">Engineered full-stack telemetry and optimization products (SpendWise AI, Star Wars Universe platforms) using advanced state mechanisms and framework layers.</p>
+            </div>
+          </div>
+
+          <div class="timeline-event scroll-reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Mid 2024</span>
+              <h4 class="timeline-title">Participated in Hack2Skills AI Hackathon</h4>
+              <p class="timeline-desc">Collaborated in rapid development of AI-driven prototypes, training classification algorithms and parsing student metrics under high-pressure competitive constraints.</p>
+            </div>
+          </div>
+
+          <div class="timeline-event scroll-reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Early 2024</span>
+              <h4 class="timeline-title">EduSphere Engine & Database Normalizers</h4>
+              <p class="timeline-desc">Developed and deployed Firebase-backed educational flows. Engineered interactive testing matrices that validated transactional properties of database schemas.</p>
+            </div>
+          </div>
+
+          <div class="timeline-event scroll-reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2023</span>
+              <h4 class="timeline-title">Academic Genesis | MVGR College of Engineering</h4>
+              <p class="timeline-desc">Began B.Tech in Information Technology. Developed foundational skills in systems architecture, native Java application patterns, and modular frontends.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Certifications Section -->
+    <section id="certifications" class="bento-section">
+      <div class="section-title-wrapper scroll-reveal">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">Credentialed credentials confirming specialized training from globally recognized academies.</p>
+      </div>
+
+      <div class="certs-grid">
+        <div class="cert-card bento-card scroll-reveal">
+          <div class="cert-badge">GitHub</div>
+          <h4 class="cert-title">GitHub Foundations</h4>
+          <p class="cert-org">Credentialed expert in git mechanics, remote workflow, and collaboration patterns.</p>
+        </div>
+        <div class="cert-card bento-card scroll-reveal">
+          <div class="cert-badge">AWS</div>
+          <h4 class="cert-title">AWS Cloud Foundations</h4>
+          <p class="cert-org">Proficient in standard cloud computing patterns, IAM protocols, and high-availability architecture.</p>
+        </div>
+        <div class="cert-card bento-card scroll-reveal">
+          <div class="cert-badge">Google</div>
+          <h4 class="cert-title">Google AI Essentials</h4>
+          <p class="cert-org">Expertise in generative models, machine learning lifecycle frameworks, and ethical prompting.</p>
+        </div>
+        <div class="cert-card bento-card scroll-reveal">
+          <div class="cert-badge">IBM</div>
+          <h4 class="cert-title">IBM Web Development Fundamentals</h4>
+          <p class="cert-org">Solid foundation in HTML5, CSS3, modern JavaScript, and web accessibility standards.</p>
+        </div>
+        <div class="cert-card bento-card scroll-reveal">
+          <div class="cert-badge">Cisco</div>
+          <h4 class="cert-title">Cisco Python Essentials</h4>
+          <p class="cert-org">Comprehensive python mechanics, object-oriented structuring, and algorithm design.</p>
+        </div>
+        <div class="cert-card bento-card scroll-reveal">
+          <div class="cert-badge">Cisco</div>
+          <h4 class="cert-title">Cisco Cybersecurity Essentials</h4>
+          <p class="cert-org">Competency in securing architectures, network nodes, database records, and preventing exploit factors.</p>
+        </div>
+        <div class="cert-card bento-card scroll-reveal">
+          <div class="cert-badge">Cisco</div>
+          <h4 class="cert-title">CCNA: Introduction to Networks</h4>
+          <p class="cert-org">Foundational routing, packet structures, DNS, and subnetting patterns.</p>
+        </div>
+        <div class="cert-card bento-card scroll-reveal">
+          <div class="cert-badge">Cisco</div>
+          <h4 class="cert-title">CCNA: Switching, Routing & Wireless</h4>
+          <p class="cert-org">Proficient in configuring VLANs, wireless nodes, and core enterprise routing protocols.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Engagement Terminal Section -->
+    <section id="contact" class="bento-section">
+      <div class="section-title-wrapper scroll-reveal">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Reach out for collaborations, internships, or high-performance engineering queries.</p>
+      </div>
+
+      <div class="bento-grid-layout">
+
+        <!-- Interactive Terminal Contact form -->
+        <div class="bento-card col-span-2 scroll-reveal">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <h3 class="card-heading">Telemetry Mail Service</h3>
+          </div>
+
+          <form class="terminal-form" action="https://formspree.io/f/harishguptasvs@gmail.com" method="POST" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="form-name" class="font-mono label-term">// SENDER_NAME</label>
+                <input type="text" id="form-name" name="name" required placeholder="eg. Elon Musk">
+              </div>
+              <div class="form-group">
+                <label for="form-email" class="font-mono label-term">// SENDER_EMAIL</label>
+                <input type="email" id="form-email" name="email" required placeholder="eg. elon@spacex.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="form-msg" class="font-mono label-term">// TRANSMISSION_PAYLOAD</label>
+              <textarea id="form-msg" name="message" rows="4" required placeholder="Write your project details or recruitment prompt here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary font-mono btn-block">
+              SEND_TRANSMISSION &rarr;
+            </button>
+            <div id="form-feedback" class="font-mono hide"></div>
+          </form>
+        </div>
+
+        <!-- Quick Contacts & Social Links -->
+        <div class="bento-card col-span-1 scroll-reveal flex-column justify-between">
+          <div>
+            <div class="card-header">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              </div>
+              <h3 class="card-heading">Direct Telemetry</h3>
+            </div>
+            <div class="direct-contacts">
+              <div class="contact-item">
+                <span class="contact-label font-mono">// EMAIL</span>
+                <div class="copy-email-wrapper">
+                  <a href="mailto:harishguptasvs@gmail.com" class="contact-value">harishguptasvs@gmail.com</a>
+                  <button class="btn-copy-email font-mono" id="btn-copy-email" aria-label="Copy email to clipboard">COPY</button>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label font-mono">// PHONE</span>
+                <span class="contact-value">+91 6359595902</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-wrapper">
+            <span class="font-mono text-dim block margin-bottom-sm">// SECURE_LINKS</span>
+            <div class="social-buttons">
+              <a href="https://github.com/harishguptasvs-cmyk" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Command Palette Modal (Ctrl/Cmd + K Overlay) -->
+  <dialog id="cmd-palette" class="cmd-palette-dialog">
+    <div class="cmd-palette-container font-mono">
+      <div class="cmd-palette-header">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="cmd-search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmd-input" placeholder="Type a command or section..." autocomplete="off" aria-label="Search command palette">
+        <button id="cmd-close-btn" class="cmd-close-btn font-mono" aria-label="Close Command Palette">ESC</button>
+      </div>
+      <div class="cmd-results" id="cmd-results" role="listbox">
+        <!-- JS inserts results here dynamically -->
+      </div>
+      <div class="cmd-palette-footer">
+        <span>Use <kbd>↑</kbd> <kbd>↓</kbd> to navigate, <kbd>Enter</kbd> to select, and <kbd>Esc</kbd> to close.</span>
+      </div>
     </div>
+  </dialog>
 
-    <!-- Python -->
-    <div class="card python show">
-      <h3>AI Resume Analyzer</h3>
-      <p>AI-based resume analysis tool.</p>
-      <a href="https://github.com/harishguptasvs-cmyk/ai-resume-analyzer" target="_blank" class="btn-small">GitHub</a>
+  <!-- Standard footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p class="font-mono text-dim">&copy; 2026 S V S Harish Gupta. Redesigned & built to production standard.</p>
+      <button id="back-to-top" class="back-to-top-btn" aria-label="Scroll back to top">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
     </div>
+  </footer>
 
-    <div class="card python show">
-      <h3>Expense Tracker</h3>
-      <p>Track daily expenses efficiently.</p>
-      <a href="https://github.com/harishguptasvs-cmyk/expense-tracker-python" target="_blank" class="btn-small">GitHub</a>
-    </div>
-
-    <!-- Java -->
-    <div class="card java show">
-      <h3>Smart SOS App</h3>
-      <p>Emergency alert mobile application.</p>
-      <a href="https://github.com/harishguptasvs-cmyk/Smart_SOS_App" target="_blank" class="btn-small">GitHub</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p><i class="fas fa-envelope"></i> harishguptasvs@gmail.com</p>
-  <p><i class="fas fa-phone"></i> +91 6359595902</p>
-</section>
-
-<footer>
-  <p>© 2026 Your Name</p>
-</footer>
-
-<script>
-function filterProjects(category, btn) {
-  let cards = document.querySelectorAll('.card');
-  let buttons = document.querySelectorAll('.filters button');
-
-  buttons.forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  cards.forEach(card => {
-    card.classList.remove('show');
-
-    setTimeout(() => {
-      if (category === 'all' || card.classList.contains(category)) {
-        card.style.display = 'block';
-        setTimeout(() => card.classList.add('show'), 50);
-      } else {
-        card.style.display = 'none';
-      }
-    }, 200);
-  });
-}
-</script>
-
+  <!-- Modular Scripts -->
+  <script src="js/command-palette.js" defer></script>
+  <script src="js/utils.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

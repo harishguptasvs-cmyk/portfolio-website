@@ -1,0 +1,87 @@
+/* --- MODERN CSS TRANSITIONS & INTERSECT OBSERVER REVEAL ANIMATIONS --- */
+
+/* Page loader overlay screen animation */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #020617; /* Dark backdrop first */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.loader-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-slash {
+  color: #ef4444; /* Rose 500 splash */
+}
+
+.loader-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.loader-track {
+  width: 240px;
+  height: 4px;
+  background-color: #1e293b;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.loader-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 9999px;
+  transition: width 0.05s linear;
+}
+
+/* Scroll reveal on-scroll effects */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Framer motion spring simulation for bento cards hover */
+.bento-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(59, 130, 246, 0.35);
+  box-shadow: 0 20px 30px -10px rgba(2, 6, 23, 0.5), 0 0 15px var(--accent-glow);
+}
+
+[data-theme="light"] .bento-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.1), 0 0 15px var(--accent-glow);
+}
